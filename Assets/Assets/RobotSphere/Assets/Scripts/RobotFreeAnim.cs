@@ -33,7 +33,6 @@ public class RobotFreeAnim : MonoBehaviour {
 
     private void FixedUpdate()
     {
-
 		if (move)
         {
 			movementTimer -= Time.deltaTime;
@@ -45,7 +44,7 @@ public class RobotFreeAnim : MonoBehaviour {
         }
         else
         {
-			movementTimer = 1f;
+			movementTimer = 0.5f;
         }
     }
 
