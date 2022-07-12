@@ -21,7 +21,7 @@ public class RobotFreeAnim : MonoBehaviour {
 
 		//movementVector = new Vector3(Mathf.Sin(Mathf.Deg2Rad * transform.eulerAngles.y), 0, Mathf.Cos(Mathf.Deg2Rad * transform.eulerAngles.y)) * 0.05f;
 		move = false;
-		movementTimer = 1f;
+		movementTimer = 0.5f;
 	}
 
 	// Update is called once per frame
