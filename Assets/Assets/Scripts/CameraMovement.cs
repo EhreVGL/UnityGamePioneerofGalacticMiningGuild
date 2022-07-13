@@ -12,7 +12,7 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        InventoryStorage.singleton.ResetAll();
     }
     // Update is called once per frame
     void Update()
