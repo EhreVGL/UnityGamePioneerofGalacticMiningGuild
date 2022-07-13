@@ -5,8 +5,6 @@ ScriptsOnlyBuild:
     - LootTile
     - RobotFreeAnim
     - UpdateCanvas
-    Unity.Mobile.AndroidLogcat.Editor.dll:
-    - Unity.Android.Logcat.AndroidLogcatManager
     Unity.ProBuilder.dll:
     - UnityEngine.ProBuilder.ProBuilderMesh
     Unity.Rider.Editor.dll:
@@ -636,4 +634,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/runo_/Desktop/PioneerOfGalacticMiningGuildApks/Pioneer2.apk
+  playerPath: C:/Users/runo_/Desktop/PioneerOfGalacticMiningGuildApks/Pioneer3.apk

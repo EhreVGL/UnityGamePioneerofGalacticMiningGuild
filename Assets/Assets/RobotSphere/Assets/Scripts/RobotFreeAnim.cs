@@ -179,6 +179,7 @@ public class RobotFreeAnim : MonoBehaviour
             }
 		}
 	}
+
     private void OnTriggerExit(Collider other)
     {
 		if (other.gameObject.tag == "LootTile")
