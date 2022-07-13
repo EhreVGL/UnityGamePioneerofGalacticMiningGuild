@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CameraMovement
+    - GateMech
     - LootTile
     - RobotFreeAnim
     - UpdateCanvas
@@ -30,6 +31,7 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.RawImage
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -81,6 +83,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2244}
     - Class: 114
+      Script: {instanceID: 2402}
+    - Class: 114
       Script: {instanceID: 2604}
     - Class: 114
       Script: {instanceID: 2740}
@@ -102,6 +106,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 5352}
     - Class: 114
       Script: {instanceID: 5418}
+    - Class: 114
+      Script: {instanceID: 22600}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -631,7 +637,13 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CameraMovement
+  - hash:
+      serializedVersion: 2
+      Hash: a2775177587e6687ed6a3941e2ae50dc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GateMech
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/runo_/Desktop/PioneerOfGalacticMiningGuildApks/Pioneer3.apk
+  playerPath: C:/Users/runo_/Desktop/PioneerOfGalacticMiningGuildApks/Pioneer4.apk
