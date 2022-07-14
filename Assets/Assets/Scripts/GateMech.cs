@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class GateMech : MonoBehaviour
 {
     private bool triggerPlayer;
@@ -16,6 +16,8 @@ public class GateMech : MonoBehaviour
     private int transferCompletedValue;
     private int crystalLoadedValue;
     [SerializeField] private TextMeshProUGUI[] CrystalsTextsInGate;
+    [SerializeField] private GameObject OutsideCollider;
+    [SerializeField] private GameObject Portal;
     private void Awake()
     {
         triggerPlayer = false;
@@ -57,6 +59,11 @@ public class GateMech : MonoBehaviour
         {
             //Bridge is enabled
             triggerPlayer = false;
+            OutsideCollider.SetActive(false);
+            Portal.SetActive(true);
+
+            GateDoneStorage.singleton.GateDone(SceneManager.GetActiveScene().name + this.gameObject.name);
+
             this.gameObject.SetActive(false);
         }
     }

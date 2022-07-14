@@ -57,8 +57,9 @@
     <Compile Include="Assets\Assets\Scripts\InventoryStorage.cs" />
     <Compile Include="Assets\Assets\Scripts\LootTile.cs" />
     <Compile Include="Assets\Assets\RobotSphere\Assets\Scripts\RobotFreeAnim.cs" />
-    <Compile Include="Assets\Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Assets\Scripts\GateMech.cs" />
+    <Compile Include="Assets\Assets\Scripts\GateDoneStorage.cs" />
+    <Compile Include="Assets\Assets\Scripts\SceneSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
