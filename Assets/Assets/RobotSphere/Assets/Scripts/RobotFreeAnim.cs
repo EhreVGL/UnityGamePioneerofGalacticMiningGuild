@@ -5,9 +5,9 @@ using DG.Tweening;
 
 public class RobotFreeAnim : MonoBehaviour 
 {
-
+	Vector3 defaultPos;
 	Vector3 rot = Vector3.zero;
-	float rotSpeed = 60f;
+	float rotSpeed = 90f;
 	Animator anim;
 	private bool useTool;
 
@@ -22,6 +22,7 @@ public class RobotFreeAnim : MonoBehaviour
 	// Use this for initialization
 	void Awake()
 	{
+		defaultPos = new Vector3(-2.21f, 0.92f, -0.04f);
 		anim = gameObject.GetComponent<Animator>();
 		gameObject.transform.eulerAngles = rot;
 		useTool = false;
@@ -32,13 +33,12 @@ public class RobotFreeAnim : MonoBehaviour
 		movementTimer = 0.5f;
 	}
 
-	// Update is called once per frame
-	void Update()
-	{
-	}
-
     private void FixedUpdate()
     {
+		if(transform.position.y < -5f)
+        {
+			transform.position = defaultPos;
+		}
 		if (Input.touchCount > 0)
 		{
 			touch = Input.GetTouch(0);
@@ -47,7 +47,6 @@ public class RobotFreeAnim : MonoBehaviour
 			if (touch.phase == TouchPhase.Began)
 			{
 				touchBegan = touch.position;
-				move = true;
 				anim.SetBool("Walk_Anim", true);
 			}
 			else if (touch.phase == TouchPhase.Ended)
@@ -56,19 +55,28 @@ public class RobotFreeAnim : MonoBehaviour
 				anim.SetBool("Walk_Anim", false);
 			}
 
-			if (touch.phase == TouchPhase.Moved)
+			if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
 			{
 				// Rotate Left
-				if (touchBegan.x > touch.position.x)
+				if (touch.position.x - touchBegan.x < -45)
 				{
 					rot[1] -= rotSpeed * Time.fixedDeltaTime;
 				}
-
 				// Rotate Right
-				if (touchBegan.x < touch.position.x)
+				else if (touch.position.x - touchBegan.x > 45)
 				{
 					rot[1] += rotSpeed * Time.fixedDeltaTime;
 				}
+
+				// Walk
+				if(touch.position.y - touchBegan.y > 30)
+                {
+					move = true;
+				}
+                else
+                {
+					move = false;
+                }
 			}
 
 		}
@@ -107,54 +115,6 @@ public class RobotFreeAnim : MonoBehaviour
         }
     }
 
-	void CheckInput()
-	{
-		if(Input.touchCount > 0)
-        {
-            touch = Input.GetTouch(0);
-
-			// Walk
-			if (touch.phase == TouchPhase.Began)
-			{
-				touchBegan = touch.position;
-				move = true;
-				anim.SetBool("Walk_Anim", true);
-			}
-			else if (touch.phase == TouchPhase.Ended)
-			{
-				move = false;
-				anim.SetBool("Walk_Anim", false);
-			}
-
-			if(touch.phase == TouchPhase.Stationary)
-            {
-				Debug.Log("touchBegan: " + touchBegan);
-				Debug.Log("touch.pos: " + touch.position);
-				// Rotate Left
-				if (touchBegan.x > touch.position.x)
-				{
-					rot[1] -= rotSpeed * Time.fixedDeltaTime;
-				}
-
-				// Rotate Right
-				if (touchBegan.x < touch.position.x)
-				{
-					rot[1] += rotSpeed * Time.fixedDeltaTime;
-				}
-			}
-		}
-
-		// Roll
-		if (useTool && !move)
-		{
-			anim.SetBool("Roll_Anim", true);
-		}
-		else
-		{
-			anim.SetBool("Roll_Anim", false);
-		}
-
-	}
 
     private void OnTriggerEnter(Collider other)
     {

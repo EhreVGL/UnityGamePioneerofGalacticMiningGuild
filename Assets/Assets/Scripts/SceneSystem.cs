@@ -5,19 +5,23 @@ using UnityEngine.SceneManagement;
 public class SceneSystem : MonoBehaviour
 {
     [SerializeField] private int sceneIndexValue;
-
-    // Start is called before the first frame update
-    void Start()
+    private int allDone;
+    [SerializeField] private string gateName;
+    private void Awake()
     {
-        
+        allDone = 0;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
-    }
+        if (GateDoneStorage.singleton.AllDone(allDone) >= 21)
+        {
+            GateDoneStorage.singleton.ResetAll();
+            InventoryStorage.singleton.ResetAll();
+            SceneManager.LoadScene(0);
+        }
+        allDone = 0;
 
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 7)

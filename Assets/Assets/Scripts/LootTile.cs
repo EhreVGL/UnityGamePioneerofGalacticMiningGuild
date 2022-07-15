@@ -16,6 +16,8 @@ public class LootTile : MonoBehaviour
     private Vector3 sequenceMovement;
     private Vector3 crystalDefaultPos;
 
+    private bool quality;
+
     private void Awake()
     {
         triggerPlayer = false;
@@ -32,6 +34,15 @@ public class LootTile : MonoBehaviour
         }
         sequenceMovement = Vector3.zero;
         crystalDefaultPos = new Vector3(-0.5f, 0.5f, 0);
+
+        if(this.gameObject.name.Substring(0,3) == "Big")
+        {
+            quality = true;
+        }
+        else
+        {
+            quality = false;
+        }
     }
     // Start is called before the first frame update
     void Start()
@@ -77,8 +88,14 @@ public class LootTile : MonoBehaviour
         crystalSequence.Append(crystal.transform.DOMove(playerTransform.position, 0.5f)).OnComplete(() => { crystal.SetActive(false); });
         crystal.transform.localPosition = crystalDefaultPos;
 
-        InventoryStorage.singleton.IncreaseCrystal(crystal.name, 1);
-        Debug.Log(crystal.name + ": " + InventoryStorage.singleton.GetCrystal(crystal.name));
+        if (quality)
+        {
+            InventoryStorage.singleton.IncreaseCrystal(crystal.name, 3);
+        }
+        else
+        {
+            InventoryStorage.singleton.IncreaseCrystal(crystal.name, 1);
+        }
     }
     IEnumerator DropChildObj()
     {

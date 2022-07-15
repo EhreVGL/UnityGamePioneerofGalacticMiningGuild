@@ -33,7 +33,15 @@ public class GateMech : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (GateDoneStorage.singleton.GetGate(SceneManager.GetActiveScene().name + this.gameObject.name) >= 1)
+        {
+            //Bridge is enabled
+            triggerPlayer = false;
+            Portal.SetActive(true);
+            OutsideCollider.SetActive(false);
+            this.gameObject.SetActive(false);
+        }
+
     }
 
     // Update is called once per frame
@@ -59,8 +67,8 @@ public class GateMech : MonoBehaviour
         {
             //Bridge is enabled
             triggerPlayer = false;
-            OutsideCollider.SetActive(false);
             Portal.SetActive(true);
+            OutsideCollider.SetActive(false);
 
             GateDoneStorage.singleton.GateDone(SceneManager.GetActiveScene().name + this.gameObject.name);
 
