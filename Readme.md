@@ -17,7 +17,7 @@ Sonuç olarak kendim tasarlayıp ortaya çıkardığım 10 farklı level'ı olan
 
 ## Uygulama Hakkında
 
-Oyunun özetle hikayesi. Galactic Mining Guild (GMG) adına çalışan bir öncü droid uzayın bilinmeyen bir yerinde meteorlar taşları arasında gezerek farklı kristallerin örneklerini topluyor.
+Oyunun özetle hikayesi. Galactic Mining Guild (GMG) adına çalışan bir öncü droid uzayın bilinmeyen bir yerinde meteor taşları arasında gezerek farklı kristallerin örneklerini topluyor.
 
 Oyun içerisindeki amaç, platform üzerindeki kristalleri toplayarak 10 platformun üzerinde bulunan 21 geçidi (Prototip olduğu için 21 geçitte bitirdim.) açmak. Geçitlerin hepsi açıldıktan sonra oyun başa dönüyor ve tekrar başlıyor. 
 
